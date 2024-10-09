@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="encuestas">
+
+    <h2 th:text="${encuesta.nombre}">Nombre </h2>
+    <h2 th:text="${encuesta.apellidos}">Apellidos</h2> <br>
+    Correo: <span th:text="${encuesta.correo}">correo</span> <br>
+    Edad: <span th:text="${encuesta.edad}">Edad</span> años <br>
+    Telefono: <span th:text="${encuesta.telefono}">telefono</span> <br>
+    Inicio de la estancia: <span th:text="${encuesta.fechaInicio}">Fecha Inicio</span> <br>
+    Motivo: <span th:text="${encuesta.motivo}">Motivo</span> <br>
+    Servicio: <span th:text="${encuesta.servicios}">servicio</span> <br>
+    Satisfacción: <span th:text="${encuesta.satisfacción}">Satisfaccion</span> <br>
+    Comentario: <span th:text="${encuesta.comentarios}">comentario</span> <br>
+
+    <a th:href="@{/encuestas}">Volver al listado</a>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

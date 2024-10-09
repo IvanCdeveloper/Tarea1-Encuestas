@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuesta de safisfaccion</title>
+</head>
+<body>
+    <form th:action="@{/encuestas/new}" method="POST" th:object="${encuesta}">
+        <input type="text" placeholder="Nombre..." id="nombre" name="nombre" th:field="*{nombre}"/> <br>
+        <input type="text" placeholder="Apellidos..." id="apellidos" name="apellidos" th:field="*{apellidos}"/> <br>
+        <input type="text" placeholder="Correo..." id="correo" name="correo" th:field="*{correo}"/><br>
+        <input type="text" placeholder="Edad..." id="edad" name="edad" th:field="*{edad}"/><br>
+        <input type="text" placeholder="telefono" id="telefono" name="telefono" th:field="*{telefono}"/><br>
+        <input type="text" placeholder="fecha de inicio..." id="fechaInicio" name="fechaInicio" th:field="*{fechaInicio}"/><br>
+        <input type="text" placeholder="motivo" id="motivo" name="motivo" th:field="*{motivo}"/><br>
+        <input type="text" placeholder="servicios" id="servicios" name="servicios" th:field="*{servicios}"/><br>
+        <input type="text" placeholder="satisfacción..." id="satisfacción" name="satisfacción" th:field="*{satisfacción}"/><br>
+        <input type="text" placeholder="comentarios" id="comentarios" name="comentarios" th:field="*{comentarios}"/><br>
+        <input type="submit" value="Enviar"></input>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    
+</form>
+
+</body>
+</html>

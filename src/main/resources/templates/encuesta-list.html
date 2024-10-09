@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuestas</title>
+</head>
+<body>
+
+    <div id="encuestas">
+        <ul>
+            <li th:each="encuesta: ${encuestas}">
+                <a th:href="@{'/encuestas/view/' + ${encuesta.id}}"
+                    th:text="${encuesta.nombre}"></a><br>
+                Fecha Inicio: <span th:text="${encuesta.fechaInicio}">Fecha Inicio</span><br>
+                Satisfacción: <span th:text="${encuesta.satisfacción}">Satisfaccion</span><br>
+
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
