@@ -71,4 +71,32 @@ public class EncuestaController {
             return "redirect:/encuestas";
         }
     }
+    @GetMapping("/encuestas/edit/{id}")
+    public String editEncuesta(@PathVariable Long id, Model model){
+        Optional<Encuesta> encuesta = encuestaRepository.findById(id);
+        if(encuesta.isPresent()){
+            //Pasamos el objeto a la vista
+            model.addAttribute("encuesta",encuesta.get());
+            return "encuesta-edit";
+        }
+
+        return "redirect:/encuestas";
+    }
+
+    @PostMapping("/encuestas/edit/{id}")
+    public String editEncuestaUpdate(@PathVariable Long id, Encuesta encuesta){
+        encuesta.setId(id);
+        encuestaRepository.save(encuesta);
+        return "redirect:/encuestas";
+    }
+
+    @GetMapping("/encuestas/del/{id}")
+    public String delEncuesta(@PathVariable Long id, Model model) {
+        Optional<Encuesta> encuesta = encuestaRepository.findById(id);
+        if(encuesta.isPresent()){
+            encuestaRepository.deleteById(id);
+        }
+        return "redirect:/encuestas";
+
+    }
 }
