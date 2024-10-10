@@ -3,29 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Encuesta de safisfaccion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Estilo del contenedor del formulario */
+        .formulario-azul {
+            background-color: #e3f2fd; /* Fondo azul claro */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+
+        /* Títulos y etiquetas con color azul */
+        .formulario-azul h2,
+        .formulario-azul label {
+            color: #0d6efd; /* Azul Bootstrap */
+        }
+
+        /* Bordes de los campos de formulario en azul */
+        .formulario-azul .form-control {
+            border: 1px solid #0d6efd; /* Bordes de los inputs en azul */
+        }
+
+        /* Botón con color azul Bootstrap */
+        .formulario-azul .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        /* Hover para el botón */
+        .formulario-azul .btn-primary:hover {
+            background-color: #084298;
+            border-color: #084298;
+        }
+    </style>
 </head>
 <body>
-    <form th:action="@{/encuestas/new}" method="POST" th:object="${encuesta}">
-        <input type="text" placeholder="Nombre..." id="nombre" name="nombre" th:field="*{nombre}"/> <br>
-        <input type="text" placeholder="Apellidos..." id="apellidos" name="apellidos" th:field="*{apellidos}"/> <br>
-        <input type="text" placeholder="Correo..." id="correo" name="correo" th:field="*{correo}"/><br>
-        <input type="text" placeholder="Edad..." id="edad" name="edad" th:field="*{edad}"/><br>
-        <input type="text" placeholder="telefono" id="telefono" name="telefono" th:field="*{telefono}"/><br>
-        <input type="text" placeholder="fecha de inicio..." id="fechaInicio" name="fechaInicio" th:field="*{fechaInicio}"/><br>
-        <input type="text" placeholder="motivo" id="motivo" name="motivo" th:field="*{motivo}"/><br>
-        <input type="text" placeholder="servicios" id="servicios" name="servicios" th:field="*{servicios}"/><br>
-        <input type="text" placeholder="satisfacción..." id="satisfacción" name="satisfacción" th:field="*{satisfacción}"/><br>
-        <input type="text" placeholder="comentarios" id="comentarios" name="comentarios" th:field="*{comentarios}"/><br>
-        <input type="submit" value="Enviar"></input>
+
     </br>
     </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <!-- Aquí aplicamos solo los estilos personalizados -->
+                    <div class="formulario-azul">
+                        <form th:action="@{/encuestas/new}" method="POST" th:object="${encuesta}">
+                            <h2 class="form-label">Encuesta de satisfacción</h2>
+                            <input type="text" class="form-control" placeholder="Nombre..." id="nombre" name="nombre" th:field="*{nombre}"/> <br>
+                            <input type="text" class="form-control" placeholder="Apellidos..." id="apellidos" name="apellidos" th:field="*{apellidos}"/> <br>
+                            <input type="text" class="form-control" placeholder="Correo..." id="correo" name="correo" th:field="*{correo}"/><br>
+                            <input type="text" class="form-control" placeholder="Edad..." id="edad" name="edad" th:field="*{edad}"/><br>
+                            <input type="text" class="form-control" placeholder="telefono" id="telefono" name="telefono" th:field="*{telefono}"/><br>
+                            <input type="date" class="form-control" placeholder="fecha de inicio..." id="fechaInicio" name="fechaInicio" th:field="*{fechaInicio}"/><br>
+                            <input type="text" class="form-control" placeholder="motivo" id="motivo" name="motivo" th:field="*{motivo}"/><br>
+                            Servicios solicitados: <br>
+                            <input type="checkbox" th:field="*{servicios}" value="Restaurante" /> Restaurante <br>
+                            <input type="checkbox" th:field="*{servicios}" value="Gimnasio" /> Gimnasio <br>
+                            <input type="checkbox" th:field="*{servicios}" value="Spa" /> Spa <br>
+                            <input type="checkbox" th:field="*{servicios}" value="Piscina" /> Piscina <br>
+                            <input type="checkbox" th:field="*{servicios}" value="Room service" /> Room Service <br> <br>
+
+                            <!--<input type="text" placeholder="servicios" id="servicios" name="servicios" th:field="*{servicios}"/><br>
+                             -->
+                            <!-- <input type="text" placeholder="satisfacción..." id="satisfacción" name="satisfacción" th:field="*{satisfacción}"/><br>-->
+                            Nivel de satisfacción: <br>
+                            <input type="radio" th:field="*{satisfacción}" value="Muy Satisfecho" /> Muy satisfecho <br>
+                            <input type="radio" th:field="*{satisfacción}" value="Satisfecho" /> Satisfecho <br>
+                            <input type="radio" th:field="*{satisfacción}" value="Neutral" /> Neutral <br>
+                            <input type="radio" th:field="*{satisfacción}" value="Insatisfecho" /> Insatisfecho <br>
+                            <input type="radio" th:field="*{satisfacción}" value="Muy Insatisfecho" /> Muy Insatisfecho <br>
+
+
+                            <input type="text" class="form-control" placeholder="comentarios" id="comentarios" name="comentarios" th:field="*{comentarios}"/><br>
+                            <input type="submit" class="btn btn-primary" value="Enviar">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     
 </form>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
