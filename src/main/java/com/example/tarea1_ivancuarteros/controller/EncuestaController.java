@@ -99,4 +99,13 @@ public class EncuestaController {
         return "redirect:/encuestas";
 
     }
+    @GetMapping("/encuestas/satisfacción/{satisfaccion}")
+    public String selectedSatisfaccion(@PathVariable String satisfaccion, Model model) {
+        List<Encuesta> encuesta = encuestaRepository.findEncuestasBySatisfacción(satisfaccion);
+        model.addAttribute("encuestas", encuesta);
+
+
+
+        return "encuesta-list";
+    }
 }

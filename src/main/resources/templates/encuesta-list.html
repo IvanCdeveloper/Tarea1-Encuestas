@@ -40,6 +40,11 @@
 <body>
 
     <div id="encuestas">
+        <label for="categoria">Filtrar por satisfacción:</label>
+        <select id="categoria" name="categoria" class="form-control" onchange="location.href='/encuestas/satisfacción/'+this.value">
+            <option th:each="encuesta : ${encuestas}" th:value="${encuesta.satisfacción}" th:text="${encuesta.satisfacción}" ></option>
+
+        </select>
         <ul>
             <li th:each="encuesta: ${encuestas}">
                 <a th:href="@{'/encuestas/view/' + ${encuesta.id}}"
